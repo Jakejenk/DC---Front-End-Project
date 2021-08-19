@@ -1,0 +1,9 @@
+#bets-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+.card-img-top {
+  height: 200px;
+  width: auto;
+}
