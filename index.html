@@ -12,8 +12,9 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>Betting Bros</title>
+       <script src="./index.js"></script>
   </head>
-  <body>
+  <body onload="displayTeamData()">
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -28,69 +29,14 @@
         </a>
       </div>
     </nav>
-    <form class="d-flex" id="search-area">
-      <input
-        class="form-control me-2"
-        id="search"
-        type="search"
-        placeholder="Type in Team Name for Bet Results"
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-success" type="submit">Get Bets</button>
-      <div class="container-fluid">Teams Placed Here</div>
-    </form>
+    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="teamOptions">
+  <!-- <option selected>Open this select menu</option> -->
+
+</select>
+
     <div class="container-fluid d-flex" id="team-container"></div>
     <div class="container-fluid text-center" id="bets-container">
-      <div id="card1">
-        <div class="card-title"><h1>Card 1</h1></div>
-        <img src="./assets/images/liverpool.jpg" alt="" class="card-img-top" />
-        <div class="card-body">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit,
-            recusandae!
-          </p>
-        </div>
-      </div>
-      <div id="card2">
-        <div class="card-title"><h1>Card 2</h1></div>
-        <img src="./assets/images/liverpool.jpg" alt="" class="card-img-top" />
-        <div class="card-body">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit,
-            recusandae!
-          </p>
-        </div>
-      </div>
-      <div id="card3">
-        <div class="card-title"><h1>Card 3</h1></div>
-        <img src="./assets/images/liverpool.jpg" alt="" class="card-img-top" />
-        <div class="card-body">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit,
-            recusandae!
-          </p>
-        </div>
-      </div>
-      <div id="card4">
-        <div class="card-title"><h1>Card 4</h1></div>
-
-        <img src="./assets/images/liverpool.jpg" alt="" class="card-img-top" />
-        <div class="card-body">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit,
-            recusandae!
-          </p>
-        </div>
-      </div>
-      <div id="card5">
-        <div class="card-title"><h1>Card 5</h1></div>
-        <img src="./assets/images/liverpool.jpg" alt="" class="card-img-top" />
-        <div class="card-body">
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugit,
-            recusandae!
-          </p>
-        </div>
+     
       </div>
     </div>
 
@@ -99,6 +45,6 @@
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
       crossorigin="anonymous"
     ></script>
-    <script src="./index.js"></script>
+ 
   </body>
 </html>
