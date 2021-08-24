@@ -14,29 +14,33 @@
     <title>Betting Bros</title>
        <script src="./index.js"></script>
   </head>
-  <body onload="displayTeamData()">
-    <nav class="navbar navbar-light bg-light">
+  <body onload="displayDropDown()">
+    <nav class="navbar navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img
-            src=""
+            src="./assets/images/Betting Bros Logo.png"
             alt=""
-            width="30"
-            height="24"
+            width="75"
+            height="50px"
             class="d-inline-block align-text-top"
           />
           Betting Bros
         </a>
       </div>
     </nav>
-    <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="teamOptions">
+<div class="d-flex">
+    <select class="form-select form-select-lg mt-5 d-flex w-50" aria-label=".form-select-lg example" id="teamOptions">
   <!-- <option selected>Open this select menu</option> -->
 
 </select>
+<div id="logo-container" class="mt-5">logo-container</div>
+</div>
 
-    <div class="container-fluid d-flex" id="team-container"></div>
-    <div class="container-fluid text-center" id="bets-container">
-     
+
+    <div class="container-fluid d-flex text-center" id="team-container">Team Container</div>
+    <div class="container-fluid d-flex text-center" id="bets-container">
+     Bets Container
       </div>
     </div>
 
