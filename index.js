@@ -1,5 +1,5 @@
 console.log("sanity check");
-
+let captureTeam = "Manchester City";
 fetch("https://api-football-v1.p.rapidapi.com/v3/teams?league=39&season=2019", {
   method: "GET",
   headers: {
@@ -11,29 +11,26 @@ fetch("https://api-football-v1.p.rapidapi.com/v3/teams?league=39&season=2019", {
     return response.json();
   })
   .then(response => {
-    console.log(response);
     displayDropDown(response);
   });
 
-// loadBetData = () => {
-//   fetch(
-//     "https://odds.p.rapidapi.com/v1/odds?sport=soccer_epl&region=eu&mkt=spreads&dateFormat=iso&oddsFormat=american",
-//     {
-//       method: "GET",
-//       headers: {
-//         "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
-//         "x-rapidapi-host": "odds.p.rapidapi.com"
-//       }
+// fetch(
+//   "https://odds.p.rapidapi.com/v1/odds?sport=soccer_epl&region=eu&mkt=spreads&dateFormat=iso&oddsFormat=american",
+//   {
+//     method: "GET",
+//     headers: {
+//       "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+//       "x-rapidapi-host": "odds.p.rapidapi.com"
 //     }
-//   )
-//     .then(response => {
-//       return response.json();
-//     })
-//     .then(betResponse => {
-//       console.log(betResponse.data);
-//       //   loadBetData(betResponse, "fetchid");
-//     });
-// };
+//   }
+// )
+//   .then(response => {
+//     console.log(response);
+//     return response.json();
+//   })
+//   .then(betResponse => {
+//     loadBetData(betResponse);
+//   });
 
 function displayDropDown(response) {
   const teams = response.response;
@@ -47,9 +44,9 @@ function displayDropDown(response) {
   }
 
   teamDropDown.addEventListener("change", e => {
-    // console.log(teamDropDown.value);
+    console.log(e);
     let teamId = parseInt(teamDropDown.value);
-    // console.log(teamId);
+    // console.log(e.target.label);
     fetch(
       `https://api-football-v1.p.rapidapi.com/v3/teams?id=${teamId}&league=39&season=2019`,
       {
@@ -61,17 +58,15 @@ function displayDropDown(response) {
       }
     )
       .then(response => {
-        console.log(response);
         return response.json();
       })
       .then(result => {
-        // displayTeamData(result.response[0]);
-        console.log(result);
-        console.log(result.response[0]);
+        displayTeamData(result);
       })
       .catch(err => {
         console.error(err);
       });
+    loadBetData();
   });
   function displayTeamData(result) {
     const teamInfo = result.response[0].team;
@@ -82,4 +77,30 @@ function displayDropDown(response) {
     //   div.teamContainer.appendChild();
     // }
   }
+}
+async function loadBetData(betResponse) {
+  await fetch(
+    "https://odds.p.rapidapi.com/v1/odds?sport=soccer_epl&region=eu&mkt=spreads&dateFormat=iso&oddsFormat=american",
+    {
+      method: "GET",
+      headers: {
+        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+        "x-rapidapi-host": "odds.p.rapidapi.com"
+      }
+    }
+  )
+    .then(response => {
+      // console.log(response);
+      return response.json();
+    })
+    .then(betResponse => {
+      displayBetData(betResponse);
+    });
+}
+
+function displayBetData(betResponse) {
+  let filterTeamName = betResponse.data.filter(team => {
+    return team.home_team === captureTeam;
+  });
+  console.log(filterTeamName);
 }
