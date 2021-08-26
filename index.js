@@ -10,7 +10,7 @@ async function loadTeamNames() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        // "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
+        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
       }
     }
   )
@@ -42,8 +42,7 @@ async function loadTeamNames() {
           method: "GET",
           headers: {
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-            "x-rapidapi-key":
-              // "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
+            "x-rapidapi-key":"6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
           }
         }
       )
@@ -68,7 +67,7 @@ async function loadTeamNames() {
         {
           method: "GET",
           headers: {
-             "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+            "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
             "x-rapidapi-host": "odds.p.rapidapi.com"
           }
         }
