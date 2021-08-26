@@ -129,5 +129,17 @@ function displayBetData(betResponse) {
   let filterTeamName = betResponse.data.filter(team => {
     return team.home_team === captureTeam;
   });
+  let betsContainer = document.getElementById("bets-container");
+  let errorDiv = document.createElement("div");
+  errorDiv.setAttribute("id", "error-message");
+  let errorId = document.getElementById("error-message");
+  errorDiv.innerText = `${errorMessage}`;
+  let errorMessage =
+    "Sorry, but this football club has no bets for the upcoming match";
+
+  // let bettingSites = filterTeamName[0].sites.length;
+  if (filterTeamName.length === 0) {
+  }
   console.log(filterTeamName);
+  console.log(filterTeamName[0].sites.length);
 }
