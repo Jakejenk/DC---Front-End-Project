@@ -42,8 +42,7 @@ async function loadTeamNames() {
           method: "GET",
           headers: {
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-            "x-rapidapi-key":
-              "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
+            "x-rapidapi-key":"6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
           }
         }
       )
@@ -59,11 +58,41 @@ async function loadTeamNames() {
         });
       loadBetData();
     });
+   
+   
     //Displays Team Data in the Team container via
+    async function displayTeamData() {
+      await fetch(
+        "https://api-football-v1.p.rapidapi.com/v3/teams?league=39&season=2019", 
+        {
+          method: "GET",
+          headers: {
+            "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+            "x-rapidapi-host": "odds.p.rapidapi.com"
+          }
+        }
+      )
+        .then(response => {
+          console.log(response);
+          return response.json();
+        })
+        .then(result => {
+          displayTeamData(result);
+        });
+    }
+    
     function displayTeamData(result) {
-      const teamInfo = result.response[0].team;
-      const venueInfo = result.response[0].venue;
-      const teamContainer = document.getElementById("team-container");
+      let filterTeamInfo = result.response.filter(team => {
+        return team.name === captureTeam;
+      });
+      console.log(filterTeamInfo);
+    
+    // function displayTeamData(result) {
+    //   const teamInfo = result.response[0].team.name;
+    //   const venueInfo = result.response[0].venue.name;
+    //   const teamContainer = document.getElementById("team-container");
+    //   console.log(teamInfo);
+      
 
       //     <div class="card" style="width: 18rem;">
       //   <img src="..." class="card-img-top" alt="...">
