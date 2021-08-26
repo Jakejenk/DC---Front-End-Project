@@ -31,7 +31,7 @@ async function loadTeamNames() {
       el.innerText = teamName;
       teamDropDown.appendChild(el);
     }
-
+    // event listener calls upon both
     teamDropDown.addEventListener("change", e => {
       console.log(e);
       let teamId = teamDropDown.value;
@@ -59,6 +59,7 @@ async function loadTeamNames() {
         });
       loadBetData();
     });
+    //Displays Team Data in the Team container via
     function displayTeamData(result) {
       const teamInfo = result.response[0].team;
       const venueInfo = result.response[0].venue;
