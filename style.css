@@ -76,3 +76,14 @@ html {
     display: block;
   }
 }
+
+.informationTable {
+ height:20px;
+ font-size: smaller;
+}
+
+.actualTable {
+  width: 50px;
+  width: 50px;
+  background-color: blue;
+}

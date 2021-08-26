@@ -1,57 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="style.css" />
-    <title>Betting Bros</title>
-       <script src="./index.js"></script>
-  </head>
-  <container>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <style>
+    #accordion-resizer {
+      padding: 10px;
+      width: 350px;
+      height: 220px;
+    }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $( function() {
+      $( "#accordion" ).accordion({
+        heightStyle: "fill"
+      });
+   
+      $( "#accordion-resizer" ).resizable({
+        minHeight: 140,
+        minWidth: 200,
+        resize: function() {
+          $( "#accordion" ).accordion( "refresh" );
+        }
+      });
+    } );
+    </script>
+</head>
+
+<body>
     <p><a href="./aboutus.html">About Us</a></p>
-  </container>
+    </container>
+  </div>
+
   <body onload="displayDropDown()">
     <nav class="navbar navbar-light bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <img
-            src="./assets/images/Betting Bros Logo.png"
-            alt=""
-            width="75"
-            height="50px"
-            class="d-inline-block align-text-top"
-          />
+          <img src="./assets/images/Betting Bros Logo.png" alt="" width="75" height="50px"
+            class="d-inline-block align-text-top" />
           Betting Bros
         </a>
       </div>
     </nav>
-<div class="d-flex">
-    <select class="form-select form-select-lg mt-5 d-flex w-50" aria-label=".form-select-lg example" id="teamOptions">
-  <!-- <option selected>Open this select menu</option> -->
+    <div class="d-flex">
+      <select class="form-select form-select-lg mt-5 d-flex w-50" aria-label=".form-select-lg example" id="teamOptions">
+        <!-- <option selected>Open this select menu</option> -->
 
-</select>
-<div id="logo-container" class="mt-5">logo-container</div>
-</div>
+      </select>
+      <div id="logo-container" class="mt-5">logo-container</div>
+    </div>
 
 
     <div class="container-fluid d-flex text-center" id="team-container">Team Container</div>
     <div class="container-fluid d-flex text-center" id="bets-container">
-     Bets Container
-      </div>
+      Bets Container
+    </div>
     </div>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-      crossorigin="anonymous"
-    ></script>
- 
+      crossorigin="anonymous"></script>
+
   </body>
+
+  <div id="accordion-resizer" class="ui-widget-content">
+    <div id="accordion">
+      <h3>Premier League History</h3>
+      <div>
+        <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+      </div>
+      <h3>Betting Tips</h3>
+      <div>
+        <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+      </div>
+      <h3>Betting Hotline</h3>
+      <div>
+        <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+        <ul>
+          <li>List item one</li>
+          <li>List item two</li>
+          <li>List item three</li>
+        </ul>
+      </div>
+      <h3>More Resouces</h3>
+      <div>
+        <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+      </div>
+    </div>
+  </div>
+
 </html>
