@@ -42,7 +42,8 @@ async function loadTeamNames() {
           method: "GET",
           headers: {
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-            "x-rapidapi-key":"6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
+            "x-rapidapi-key":
+              "4058387ef9msh153247a8cc0ae8bp114b7ejsn04ba7f02c7ad"
           }
         }
       )
@@ -58,16 +59,16 @@ async function loadTeamNames() {
         });
       loadBetData();
     });
-   
-   
+
     //Displays Team Data in the Team container via
     async function displayTeamData() {
       await fetch(
-        "https://api-football-v1.p.rapidapi.com/v3/teams?league=39&season=2019", 
+        "https://api-football-v1.p.rapidapi.com/v3/teams?league=39&season=2019",
         {
           method: "GET",
           headers: {
-            "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+            "x-rapidapi-key":
+              "4058387ef9msh153247a8cc0ae8bp114b7ejsn04ba7f02c7ad",
             "x-rapidapi-host": "odds.p.rapidapi.com"
           }
         }
@@ -80,19 +81,12 @@ async function loadTeamNames() {
           displayTeamData(result);
         });
     }
-    
+
     function displayTeamData(result) {
-      let filterTeamInfo = result.response.filter(team => {
-        return team.name === captureTeam;
-      });
-      console.log(filterTeamInfo);
-    
-    // function displayTeamData(result) {
-    //   const teamInfo = result.response[0].team.name;
-    //   const venueInfo = result.response[0].venue.name;
-    //   const teamContainer = document.getElementById("team-container");
-    //   console.log(teamInfo);
-      
+      const teamInfo = result.response[0].team.name;
+      const venueInfo = result.response[0].venue.name;
+      const teamContainer = document.getElementById("team-container");
+      console.log(teamInfo);
 
       //     <div class="card" style="width: 18rem;">
       //   <img src="..." class="card-img-top" alt="...">
@@ -111,7 +105,7 @@ async function loadBetData() {
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+        "x-rapidapi-key": "4058387ef9msh153247a8cc0ae8bp114b7ejsn04ba7f02c7ad",
         "x-rapidapi-host": "odds.p.rapidapi.com"
       }
     }
@@ -129,17 +123,17 @@ function displayBetData(betResponse) {
   let filterTeamName = betResponse.data.filter(team => {
     return team.home_team === captureTeam;
   });
-  let betsContainer = document.getElementById("bets-container");
-  let errorDiv = document.createElement("div");
-  errorDiv.setAttribute("id", "error-message");
-  let errorId = document.getElementById("error-message");
-  errorDiv.innerText = `${errorMessage}`;
-  let errorMessage =
-    "Sorry, but this football club has no bets for the upcoming match";
+  // let betsContainer = document.getElementById("bets-container");
+  // let errorDiv = document.createElement("div");
+  // errorDiv.setAttribute("id", "error-message");
+  // let errorId = document.getElementById("error-message");
+  // errorDiv.innerText = `${errorMessage}`;
+  // let errorMessage =
+  //   "Sorry, but this football club has no bets for the upcoming match";
 
   // let bettingSites = filterTeamName[0].sites.length;
-  if (filterTeamName.length === 0) {
-  }
+  // if (filterTeamName.length === 0) {
+  // }
   console.log(filterTeamName);
-  console.log(filterTeamName[0].sites.length);
+  // console.log(filterTeamName[0].sites.length);
 }
