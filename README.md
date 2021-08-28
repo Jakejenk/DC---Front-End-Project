@@ -10,6 +10,9 @@ Digital Crafts Front End Project
 
 - API Call Method: Fetch 
 
-- External Library - JQuery UI
+- API Call # 1 - Football API Call - https://rapidapi.com/api-sports/api/api-football/
+- API Call # 2 - LivE Odds APPI - https://rapidapi.com/theoddsapi/api/live-sports-odds/
+
+- External Library - JQuery UI - https://learn.jquery.com/jquery-ui/getting-started/
 
 - Deployment - Netlify
