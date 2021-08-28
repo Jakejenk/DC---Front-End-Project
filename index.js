@@ -10,14 +10,14 @@ async function loadTeamNames() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815"
-      }
+        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+      },
     }
   )
-    .then(response => {
+    .then((response) => {
       return response.json();
     })
-    .then(response => {
+    .then((response) => {
       displayDropDown(response);
     });
   // Fills team Names in drop down menue the loadTeamNames function fires the below to fill in the data
@@ -32,7 +32,7 @@ async function loadTeamNames() {
       teamDropDown.appendChild(el);
     }
     // event listener calls upon both
-    teamDropDown.addEventListener("change", e => {
+    teamDropDown.addEventListener("change", (e) => {
       console.log(e);
       let teamId = teamDropDown.value;
       captureTeam = teamDropDown.value;
@@ -43,18 +43,18 @@ async function loadTeamNames() {
           headers: {
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
             "x-rapidapi-key":
-              "4058387ef9msh153247a8cc0ae8bp114b7ejsn04ba7f02c7ad"
-          }
+              "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+          },
         }
       )
-        .then(response => {
+        .then((response) => {
           return response.json();
         })
-        .then(result => {
+        .then((result) => {
           console.log(result);
           displayTeamData(result);
         })
-        .catch(err => {
+        .catch((err) => {
           console.error(err);
         });
       loadBetData();
@@ -68,16 +68,16 @@ async function loadTeamNames() {
           method: "GET",
           headers: {
             "x-rapidapi-key":
-              "4058387ef9msh153247a8cc0ae8bp114b7ejsn04ba7f02c7ad",
-            "x-rapidapi-host": "odds.p.rapidapi.com"
-          }
+              "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+            "x-rapidapi-host": "odds.p.rapidapi.com",
+          },
         }
       )
-        .then(response => {
+        .then((response) => {
           console.log(response);
           return response.json();
         })
-        .then(result => {
+        .then((result) => {
           displayTeamData(result);
         });
     }
@@ -105,22 +105,22 @@ async function loadBetData() {
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "4058387ef9msh153247a8cc0ae8bp114b7ejsn04ba7f02c7ad",
-        "x-rapidapi-host": "odds.p.rapidapi.com"
-      }
+        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
+        "x-rapidapi-host": "odds.p.rapidapi.com",
+      },
     }
   )
-    .then(response => {
+    .then((response) => {
       console.log(response);
       return response.json();
     })
-    .then(betResponse => {
+    .then((betResponse) => {
       displayBetData(betResponse);
     });
 }
 
 function displayBetData(betResponse) {
-  let filterTeamName = betResponse.data.filter(team => {
+  let filterTeamName = betResponse.data.filter((team) => {
     return team.home_team === captureTeam;
   });
 
@@ -149,7 +149,7 @@ function displayBetData(betResponse) {
 
       // create card subtitle (matchup)
       const cardSubTitle = document.createElement("div");
-      cardSubTitle.setAttribute("class", "card-subtitle mb-2 text-muted");
+      cardSubTitle.setAttribute("class", "card-subtitle mb-2 text-black");
       cardSubTitle.append(`${matchUp}`);
 
       // create card odds and points section
