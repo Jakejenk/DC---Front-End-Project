@@ -142,10 +142,26 @@ function displayBetData(betResponse) {
       cardBodyDiv.setAttribute("class", "card-body");
 
       // create card title
-      const cardHeader = document.createElement("h5");
-      cardHeader.setAttribute("class", "card-header text-white bg-primary");
+      // const cardHeader = document.createElement("div");
+      // cardHeader.setAttribute("class", "card-header text-white bg-primary");
+      // cardHeader.setAttribute("href",`https://${websites}`);
       const websites = bettingSites[i].site_nice;
-      cardHeader.append(`https://${websites}`);
+      // cardHeader.append(<a href="`https://${websites}`"/>);
+           // Create anchor element.
+           var cardHeader = document.createElement('a'); 
+           cardHeader.setAttribute("class", "card-header text-white bg-primary");
+                  
+           // Create the text node for anchor element.
+           var link = document.createTextNode(`https://${websites}`);
+             
+           // Append the text node to anchor element.
+           cardHeader.appendChild(link); 
+             
+           // Set the title.
+           cardHeader.title = `https://${websites}`; 
+             
+           // Set the href property.
+           cardHeader.href = `https://${websites}`; 
 
       // create card subtitle (matchup)
       const cardSubTitle = document.createElement("div");
@@ -161,8 +177,8 @@ function displayBetData(betResponse) {
       const awayPoints = points[0];
       const cardTextOdds = document.createElement("p");
       const cardTextPoints = document.createElement("p");
-      cardTextOdds.setAttribute("class", "card-text");
-      cardTextPoints.setAttribute("class", "card-text");
+      cardTextOdds.setAttribute("class", "card-text card-decoration-none");
+      cardTextPoints.setAttribute("class", "card-text card-decoration-none");
       cardTextOdds.append(`Home Odds: ${homeOdds} VS Away Odds: ${awayOdds}
       `);
       cardTextPoints.append(
