@@ -124,28 +124,21 @@ function displayBetData(betResponse) {
     return team.home_team === captureTeam;
   });
 
-  // let errorDiv = document.createElement("div");
-  // errorDiv.setAttribute("id", "error-message");
-  // let errorId = document.getElementById("error-message");
-  // errorDiv.innerText = `${errorMessage}`;
-  // let errorMessage =
-  //   "Sorry, but this football club has no bets for the upcoming match";
-
-  // let bettingSites = filterTeamName[0].sites.length;
-  // if (filterTeamName.length === 0) {
-  // }
-
   let bettingSites = filterTeamName[0].sites;
   let awayTeam = filterTeamName[0].teams[0];
   let homeTeam = filterTeamName[0].teams[1];
+
   function makeBetsDisplay() {
     for (let i = 0; i < bettingSites.length; i++) {
       let matchUp = `${homeTeam} VS ${awayTeam}`;
       let betsContainer = document.getElementById("bets-container");
-      let test = bettingSites[i].sites.site_nice;
+      let betSiteDiv = document.createElement("div");
+      let websites = bettingSites[i].site_nice;
+      betSiteDiv.setAttribute("class", "card");
+
+      betSiteDiv.append(`https://${websites}, `);
+      betsContainer.append(betSiteDiv);
     }
   }
-
-  console.log(filterTeamName);
-  console.log();
+  return makeBetsDisplay();
 }

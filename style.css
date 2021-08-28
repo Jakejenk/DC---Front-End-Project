@@ -1,8 +1,3 @@
-#bets-container {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-}
-
 .card-img-top {
   height: 200px;
   width: auto;
@@ -17,7 +12,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -44,7 +41,8 @@ html {
   padding: 0 16px;
 }
 
-.container::after, .row::after {
+.container::after,
+.row::after {
   content: "";
   clear: both;
   display: table;
@@ -78,8 +76,8 @@ html {
 }
 
 .informationTable {
- height:20px;
- font-size: smaller;
+  height: 20px;
+  font-size: smaller;
 }
 
 .actualTable {
@@ -87,3 +85,13 @@ html {
   width: 50px;
   background-color: blue;
 }
+
+/* Bets Container CSS */
+
+/* #bets-container {
+  display: flex;
+  flex-direction: row;
+  height: 500px;
+  width: 100%;
+  background-color: red;
+} */
