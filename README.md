@@ -9,3 +9,7 @@ Digital Crafts Front End Project
 - Languages : Javascript, HTML, CSS 
 
 - API Call Method: Fetch 
+
+- External Library - JQuery UI
+
+- Deployment - Netlify
