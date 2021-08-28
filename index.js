@@ -125,19 +125,57 @@ function displayBetData(betResponse) {
   });
 
   let bettingSites = filterTeamName[0].sites;
+  console.log(bettingSites);
   let awayTeam = filterTeamName[0].teams[0];
   let homeTeam = filterTeamName[0].teams[1];
+  let matchUp = `${homeTeam} VS ${awayTeam}`;
 
   function makeBetsDisplay() {
     for (let i = 0; i < bettingSites.length; i++) {
-      let matchUp = `${homeTeam} VS ${awayTeam}`;
-      let betsContainer = document.getElementById("bets-container");
-      let betSiteDiv = document.createElement("div");
-      let websites = bettingSites[i].site_nice;
-      betSiteDiv.setAttribute("class", "card");
+      const betsContainer = document.getElementById("bets-container");
+      // create card
+      const cardDiv = document.createElement("div");
+      cardDiv.setAttribute("class", "card w-75 m-2 shadow p-3 rounded");
 
-      betSiteDiv.append(`https://${websites}, `);
-      betsContainer.append(betSiteDiv);
+      // create card body
+      const cardBodyDiv = document.createElement("div");
+      cardBodyDiv.setAttribute("class", "card-body");
+
+      // create card title
+      const cardHeader = document.createElement("h5");
+      cardHeader.setAttribute("class", "card-header text-white bg-primary");
+      const websites = bettingSites[i].site_nice;
+      cardHeader.append(`https://${websites}`);
+
+      // create card subtitle (matchup)
+      const cardSubTitle = document.createElement("div");
+      cardSubTitle.setAttribute("class", "card-subtitle mb-2 text-muted");
+      cardSubTitle.append(`${matchUp}`);
+
+      // create card odds and points section
+      const odds = bettingSites[i].odds.spreads.odds;
+      const homeOdds = odds[1];
+      const awayOdds = odds[0];
+      const points = bettingSites[i].odds.spreads.points;
+      const homePoints = points[1];
+      const awayPoints = points[0];
+      const cardTextOdds = document.createElement("p");
+      const cardTextPoints = document.createElement("p");
+      cardTextOdds.setAttribute("class", "card-text");
+      cardTextPoints.setAttribute("class", "card-text");
+      cardTextOdds.append(`Home Odds: ${homeOdds} VS Away Odds: ${awayOdds}
+      `);
+      cardTextPoints.append(
+        `Home Points: ${homePoints} VS Away Points: ${awayPoints}`
+      );
+
+      // append cards to container
+      cardDiv.append(cardBodyDiv);
+      cardDiv.append(cardHeader);
+      cardBodyDiv.append(cardSubTitle);
+      cardBodyDiv.append(cardTextOdds);
+      cardBodyDiv.append(cardTextPoints);
+      betsContainer.append(cardDiv);
     }
   }
   return makeBetsDisplay();
