@@ -10,14 +10,14 @@ async function loadTeamNames() {
       method: "GET",
       headers: {
         "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
-      },
+        "x-rapidapi-key": "ce6a7de74fmshdd457dee571ad31p15544ejsnf2f72efbc613"
+      }
     }
   )
-    .then((response) => {
+    .then(response => {
       return response.json();
     })
-    .then((response) => {
+    .then(response => {
       displayDropDown(response);
     });
   // Fills team Names in drop down menue the loadTeamNames function fires the below to fill in the data
@@ -32,7 +32,7 @@ async function loadTeamNames() {
       teamDropDown.appendChild(el);
     }
     // event listener calls upon both
-    teamDropDown.addEventListener("change", (e) => {
+    teamDropDown.addEventListener("change", e => {
       console.log(e);
       let teamId = teamDropDown.value;
       captureTeam = teamDropDown.value;
@@ -43,18 +43,18 @@ async function loadTeamNames() {
           headers: {
             "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
             "x-rapidapi-key":
-              "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
-          },
+              "ce6a7de74fmshdd457dee571ad31p15544ejsnf2f72efbc613"
+          }
         }
       )
-        .then((response) => {
+        .then(response => {
           return response.json();
         })
-        .then((result) => {
+        .then(result => {
           console.log(result);
           displayTeamData(result);
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
         });
       loadBetData();
@@ -68,16 +68,16 @@ async function loadTeamNames() {
           method: "GET",
           headers: {
             "x-rapidapi-key":
-              "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
-            "x-rapidapi-host": "odds.p.rapidapi.com",
-          },
+              "ce6a7de74fmshdd457dee571ad31p15544ejsnf2f72efbc613",
+            "x-rapidapi-host": "odds.p.rapidapi.com"
+          }
         }
       )
-        .then((response) => {
+        .then(response => {
           console.log(response);
           return response.json();
         })
-        .then((result) => {
+        .then(result => {
           displayTeamData(result);
         });
     }
@@ -105,22 +105,22 @@ async function loadBetData() {
     {
       method: "GET",
       headers: {
-        "x-rapidapi-key": "6400f3fcefmshf14cd58e6a8360fp173368jsn4cb37f9ff815",
-        "x-rapidapi-host": "odds.p.rapidapi.com",
-      },
+        "x-rapidapi-key": "ce6a7de74fmshdd457dee571ad31p15544ejsnf2f72efbc613",
+        "x-rapidapi-host": "odds.p.rapidapi.com"
+      }
     }
   )
-    .then((response) => {
+    .then(response => {
       console.log(response);
       return response.json();
     })
-    .then((betResponse) => {
+    .then(betResponse => {
       displayBetData(betResponse);
     });
 }
 
 function displayBetData(betResponse) {
-  let filterTeamName = betResponse.data.filter((team) => {
+  let filterTeamName = betResponse.data.filter(team => {
     return team.home_team === captureTeam;
   });
 
@@ -147,21 +147,21 @@ function displayBetData(betResponse) {
       // cardHeader.setAttribute("href",`https://${websites}`);
       const websites = bettingSites[i].site_nice;
       // cardHeader.append(<a href="`https://${websites}`"/>);
-           // Create anchor element.
-           var cardHeader = document.createElement('a'); 
-           cardHeader.setAttribute("class", "card-header text-white bg-primary");
-                  
-           // Create the text node for anchor element.
-           var link = document.createTextNode(`https://${websites}`);
-             
-           // Append the text node to anchor element.
-           cardHeader.appendChild(link); 
-             
-           // Set the title.
-           cardHeader.title = `https://${websites}`; 
-             
-           // Set the href property.
-           cardHeader.href = `https://${websites}`; 
+      // Create anchor element.
+      var cardHeader = document.createElement("a");
+      cardHeader.setAttribute("class", "card-header text-white bg-primary");
+
+      // Create the text node for anchor element.
+      var link = document.createTextNode(`https://${websites}`);
+
+      // Append the text node to anchor element.
+      cardHeader.appendChild(link);
+
+      // Set the title.
+      cardHeader.title = `https://${websites}`;
+
+      // Set the href property.
+      cardHeader.href = `https://${websites}`;
 
       // create card subtitle (matchup)
       const cardSubTitle = document.createElement("div");
